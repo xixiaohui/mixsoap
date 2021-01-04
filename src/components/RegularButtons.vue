@@ -2,26 +2,25 @@
   <div>
     <div>
 
-      <md-button>Default</md-button>
-      <md-button :md-ripple="false">Ripple Off</md-button>
-      <md-button class="md-primary">Primary</md-button>
-      <md-button class="md-accent">Accent</md-button>
-      <md-button disabled>Disabled</md-button>
+      <md-button href="">ODD</md-button>
+      <md-button :md-ripple="false">FEE</md-button>
+      <md-button class="md-primary">ODD</md-button>
+      <md-button class="md-accent">FEE</md-button>
+<!--      <md-button disabled>Disabled</md-button>-->
     </div>
 
     <div>
 
-      <md-button class="md-raised">Default</md-button>
-      <md-button class="md-raised" :md-ripple="false">Ripple Off</md-button>
-      <md-button class="md-raised md-primary">Primary</md-button>
-      <md-button class="md-raised md-accent">Accent</md-button>
-      <md-button class="md-raised" disabled>Disabled</md-button>
+      <md-button class="md-raised">ODD</md-button>
+      <md-button class="md-raised" :md-ripple="false">FEE</md-button>
+      <md-button class="md-raised md-primary">ODD</md-button>
+      <md-button class="md-raised md-accent">FEE</md-button>
+<!--      <md-button class="md-raised" disabled>Disabled</md-button>-->
     </div>
 
     <div>
-
-      <md-button class="md-dense md-primary">Flat</md-button>
-      <md-button class="md-dense md-raised md-primary">Raised</md-button>
+      <md-button class="md-dense md-primary">odd</md-button>
+      <md-button class="md-dense md-raised md-primary">fee</md-button>
     </div>
   </div>
 </template>
