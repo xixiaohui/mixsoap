@@ -12,7 +12,7 @@
       </md-card-header>
 
       <md-card-content>
-<!--        <a :href="music.music.url">play</a>-->
+        <md-button class="md-raised md-accent" @click="download">download</md-button>
         <AudioTrack :url="music.music.url"></AudioTrack>
       </md-card-content>
     </md-card>
@@ -32,7 +32,7 @@
 <script>
 import Vue from "vue";
 import AudioTrack from './AudioTrack'
-
+import saveAs from 'file-saver'
 
 export default {
   name: "MusicDetailContent",
@@ -57,6 +57,13 @@ export default {
     addCount:function (){
       this.$store.commit('increment')
     },
+
+    download:function (){
+      var FileSaver = require('file-saver');
+
+      FileSaver.saveAs(this.music.music.url)
+      // console.log("download" + this.music.music.url)
+    }
   },
   computed:{
     count(){

@@ -5,7 +5,7 @@
     </md-card-media>
     <md-card-header>
       <div class="md-title">Welcome to oddfee.</div>
-      <div class="md-subhead">Thank you for your coming. Ads.</div>
+      <div class="md-subhead">Thank you for your coming.</div>
     </md-card-header>
 
     <md-card-content>
