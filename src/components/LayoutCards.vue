@@ -1,110 +1,81 @@
 <template>
   <div>
-    <md-card>
+
+    <md-card v-on:click.native="gotoDetails($event)" @mouseenter="changeActive($event)" @mousemove="removeActive($event)">
       <md-card-media>
-        <img src="../assets/card-example.jpg" alt="People">
+        <!--        <img src="../assets/card-example.jpg" alt="People">-->
       </md-card-media>
 
       <md-card-header>
-        <div class="md-title">枫桥夜泊</div>
-        <div class="md-subhead">张继</div>
+        <div class="md-title">{{ music.title }}</div>
+        <div class="md-subhead">{{ music.des }}</div>
       </md-card-header>
 
-
-
       <md-card-content>
-        月落乌啼霜满天，江枫渔火对愁眠。姑苏城外寒山寺，夜半钟声到客船。
+        <!--        {{ music.url }}-->
       </md-card-content>
 
       <md-card-actions>
-        <md-button>详情</md-button>
-<!--        <md-button>更多</md-button>-->
+        <!--        <md-button class="md-primary">play</md-button>-->
+        <!--        <md-button v-on:click="gotoDetails">更多</md-button>-->
       </md-card-actions>
+
     </md-card>
-    <!--    -->
-    <!--    <md-card>-->
-    <!--      <md-card-header>-->
-    <!--        <div class="md-title">Card without hover effect</div>-->
-    <!--      </md-card-header>-->
 
-    <!--      <md-card-content>-->
-    <!--        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.-->
-    <!--      </md-card-content>-->
-
-    <!--      <md-card-actions>-->
-    <!--        <md-button>Action</md-button>-->
-    <!--        <md-button>Action</md-button>-->
-    <!--      </md-card-actions>-->
-    <!--    </md-card>-->
-
-    <!--    <md-card md-with-hover>-->
-    <!--      <md-ripple>-->
-    <!--        <md-card-header>-->
-    <!--          <div class="md-title">Card with hover effect</div>-->
-    <!--          <div class="md-subhead">It also have a ripple</div>-->
-    <!--        </md-card-header>-->
-
-    <!--        <md-card-content>-->
-    <!--          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.-->
-    <!--        </md-card-content>-->
-
-    <!--        <md-card-actions>-->
-    <!--          <md-button>Action</md-button>-->
-    <!--          <md-button>Action</md-button>-->
-    <!--        </md-card-actions>-->
-    <!--      </md-ripple>-->
-    <!--    </md-card>-->
   </div>
 </template>
 
 <style lang="scss" scoped>
 .md-card {
-  width: 320px;
+  width: 300px;
+  height: 200px;
   margin: 4px;
   display: inline-block;
   vertical-align: top;
+  float: left;
+
+  cursor: pointer;
 }
 
-.md-card-example {
-  .md-subhead {
-    .md-icon {
-      $size: 16px;
-
-      width: $size;
-      min-width: $size;
-      height: $size;
-      font-size: $size !important;
-    }
-
-    span {
-      vertical-align: middle;
-    }
-  }
-
-  .card-reservation {
-    margin-top: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    .md-icon {
-      margin: 8px;
-    }
-  }
-
-  .md-button-group {
-    display: flex;
-
-    .md-button {
-      min-width: 60px;
-      border-radius: 2px;
-    }
-  }
-}
 </style>
 
 <script>
+
 export default {
-  name: 'LayoutCards'
+  name: 'LayoutCards',
+  data:function (){
+    return {
+
+    }
+  },
+
+  props: {
+    music: Object,
+  },
+
+  methods: {
+    gotoDetails: function (event) {
+
+      // let currentmusic = JSON.stringify(this.music)
+      this.$router.push(
+          {
+            path: '/details',
+            // query:{
+            //   'music':currentmusic
+            // }
+          }
+      )
+      this.$store.commit('setMusic',{'music':this.music})
+    },
+
+    changeActive:function (e){
+      console.log("鼠标移入了");
+    },
+
+    removeActive: function (e){
+      console.log("鼠标移出了");
+    }
+
+  }
 }
 </script>
